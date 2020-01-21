@@ -16,14 +16,24 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  String letters = onlyLetters(word);
+  String reverse = reverse(letters);
+  return reverse.equalsIgnoreCase(letters);
 }
-public String reverse(String str)
+public String reverse(String sWord)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String reverse = "";
+  for (int i=sWord.length()-1; i>=0; i--) {
+    reverse+=sWord.substring(i, i+1);
+  }
+  return reverse;
 }
-
-
+public String onlyLetters(String sString){
+  String letters = "";
+  for (int i=0; i<sString.length(); i++) {
+    if (Character.isLetter(sString.charAt(i))) {
+      letters += sString.substring(i, i+1);
+    }
+  }
+  return letters;
+}
